@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Light – prikaz slika na naslovnoj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f6f6f5;
+    --fg: #111111;
+    --muted: #5f5f5c;
+    --line: rgba(0, 0, 0, 0.14);
+    --frame: #ffffff;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-num: 'Times New Roman', Times, serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --fg: #f1f1ef;
+      --muted: #a3a3a0;
+      --line: rgba(255, 255, 255, 0.16);
+      --frame: #1c1c1c;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, p, figure, ol { margin: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 48px 80px;
+    display: grid;
+    gap: 72px;
+  }
+
+  header {
+    display: grid;
+    gap: 16px;
+    max-width: 68ch;
+  }
+  h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  header p { color: var(--muted); }
+
+  nav ol {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  nav a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav a:hover { border-color: var(--fg); }
+  nav a:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+  nav .num { font-family: var(--font-num); font-size: 16px; }
+
+  figure {
+    display: grid;
+    gap: 20px;
+    scroll-margin-top: 24px;
+  }
+  figcaption {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    align-items: baseline;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  figcaption .num {
+    font-family: var(--font-num);
+    font-size: 44px;
+    line-height: 1;
+    grid-row: span 2;
+    min-width: 1ch;
+  }
+  figcaption h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  figcaption p {
+    color: var(--muted);
+    max-width: 72ch;
+    min-width: 0;
+  }
+
+  .shot {
+    background: var(--frame);
+    border: 1px solid var(--line);
+    max-width: 100%;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .page { gap: 48px; padding-block: 32px 56px; }
+    figcaption .num { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <h1>Naslovna: cijele slike u mreži projekata</h1>
+    <p>Na naslovnoj su sve slike projekata trenutno izrezane na omjer 16:9. Ovdje je šest načina da se slika prikaže cijela, a da mreža ostane ista. Svaka snimka prikazuje cijelu naslovnu stranicu na širini od 1440&nbsp;px, u svijetloj temi. Za usporedbu je prva trenutna verzija.</p>
+    <nav aria-label="Opcije">
+      <ol>
+        <li><a href="#trenutno">Trenutno</a></li>
+        <li><a href="#opcija-1"><span class="num">1</span> Uklapanje u okvir</a></li>
+        <li><a href="#opcija-2"><span class="num">2</span> Paspartu</a></li>
+        <li><a href="#opcija-3"><span class="num">3</span> Prirodna visina</a></li>
+        <li><a href="#opcija-4"><span class="num">4</span> Zamućena pozadina</a></li>
+        <li><a href="#opcija-5"><span class="num">5</span> Naslovna slika 16:9</a></li>
+        <li><a href="#opcija-6"><span class="num">6</span> Paspartu, slika lijevo</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <figure id="trenutno">
+    <figcaption>
+      <span class="num">0</span>
+      <h2>Trenutno: rez na 16:9</h2>
+      <p>Svaka slika je izrezana tako da ispuni okvir 16:9. Kod projekata Naranča (3:2), Teo i Komarna (kvadratne slike) dio slike je odrezan; ostalih šest već je u omjeru 16:9.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/0-trenutno.jpg" width="1440" height="1853" alt="Naslovna danas: sve slike projekata izrezane na 16:9"></div>
+  </figure>
+
+  <figure id="opcija-1">
+    <figcaption>
+      <span class="num">1</span>
+      <h2>Uklapanje u okvir</h2>
+      <p>Okvir 16:9 ostaje, a cijela slika se uklapa u njega, centrirana. Prazan prostor oko slike je boja pozadine stranice.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/1-uklapanje.jpg" width="1440" height="1853" alt="Opcija 1: cijele slike centrirane u okvirima 16:9 na bijeloj pozadini" loading="lazy"></div>
+  </figure>
+
+  <figure id="opcija-2">
+    <figcaption>
+      <span class="num">2</span>
+      <h2>Paspartu</h2>
+      <p>Okvir 16:9 postaje svijetlosivi paspartu s rubom od 20&nbsp;px, a cijela slika stoji centrirana unutar njega. Paspartu imaju sve slike, pa okviri djeluju ujednačeno.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/2-paspartu.jpg" width="1440" height="1853" alt="Opcija 2: cijele slike centrirane na svijetlosivom paspartuu 16:9" loading="lazy"></div>
+  </figure>
+
+  <figure id="opcija-3">
+    <figcaption>
+      <span class="num">3</span>
+      <h2>Prirodna visina</h2>
+      <p>Bez fiksnog okvira: svaka slika zadržava svoj omjer. Najviša slika određuje visinu reda, a slike i naslovi poravnati su uz dno reda. Okomite i vodoravne linije mreže ostaju na mjestu.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/3-prirodna-visina.jpg" width="1440" height="2096" alt="Opcija 3: slike u izvornom omjeru, poravnate uz dno svakog reda" loading="lazy"></div>
+  </figure>
+
+  <figure id="opcija-4">
+    <figcaption>
+      <span class="num">4</span>
+      <h2>Zamućena pozadina</h2>
+      <p>Cijela slika stoji centrirana u okviru 16:9, a prazne strane popunjava zamućena, uvećana kopija iste slike. Ne učitava se nijedna dodatna datoteka.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/4-zamucena-pozadina.jpg" width="1440" height="1853" alt="Opcija 4: cijele slike preko zamućene kopije koja ispunjava okvir 16:9" loading="lazy"></div>
+  </figure>
+
+  <figure id="opcija-5">
+    <figcaption>
+      <span class="num">5</span>
+      <h2>Naslovna slika 16:9</h2>
+      <p>Raspored se ne mijenja. Naslovna slika svakog projekta postaje njegov prvi render u omjeru 16:9, pa ništa ne treba rezati: Naranča, Teo i Komarna prelaze na svoj drugi render. Buduće slike koje nisu 16:9 i dalje bi se rezale.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/5-naslovna-16-9.jpg" width="1440" height="1853" alt="Opcija 5: svaka naslovna slika je render 16:9 koji ispunjava okvir" loading="lazy"></div>
+  </figure>
+
+  <figure id="opcija-6">
+    <figcaption>
+      <span class="num">6</span>
+      <h2>Paspartu, slika lijevo</h2>
+      <p>Isto kao opcija 2, ali je slika poravnata uz lijevi rub paspartua umjesto po sredini, pa joj se lijevi rub poklapa s naslovom ispod.</p>
+    </figcaption>
+    <div class="shot"><img src="slike/6-paspartu-lijevo.jpg" width="1440" height="1853" alt="Opcija 6: cijele slike na svijetlosivom paspartuu, poravnate lijevo" loading="lazy"></div>
+  </figure>
+
+  <footer>Snimljeno 19. studenoga 2026. na širini od 1440&nbsp;px. Tablet i mobilni prikaz nisu uključeni.</footer>
+</main>
+</body>
+</html>
